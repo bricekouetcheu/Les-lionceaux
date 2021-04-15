@@ -5,6 +5,7 @@ from django.db import models
 
 
 class Employees(models.Model):
+    website = models.URLField(blank=True)
     firstname = models.CharField(max_length=10)
     lastname = models.CharField(max_length=10)
     emp_id = models.IntegerField()

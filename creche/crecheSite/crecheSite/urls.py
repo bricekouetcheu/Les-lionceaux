@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-
+from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from siteApp import views
+# from . import views
 urlpatterns = [
 
-    path('admin/', admin.site.urls),
-    path('Employees/', views.EmployeeList.as_view()),
+    url(r'^admin/', admin.site.urls),
+    # path('Employees/', views.EmployeeList.as_view()),
+    path('siteApp/', include('siteApp.urls')),
 
 ]
