@@ -22,7 +22,21 @@ class BlogSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
+class AlbumSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Album
+        fields = "__all__"
+
+
+class GroupeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Groupe
+        fields = "__all__"
+
+
 class GalerieSerializer(serializers.ModelSerializer):
+    album_galerie = AlbumSerializer(many=True, required=False)
+
     class Meta:
         model = models.Galerie
         fields = "__all__"
@@ -47,7 +61,7 @@ class ParentSerializer(serializers.ModelSerializer):
 
 
 class EnfantSerializer(serializers.ModelSerializer):
-    # enfant = UserSerializer(many=False, read_only=True, required=False)
+    groupe_enfant = GroupeSerializer(many=True, required=False)
     parent_enfant = ParentSerializer(many=True, required=False)
 
     class Meta:
