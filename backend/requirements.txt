@@ -1,0 +1,18 @@
+Django==3.2
+Pillow==8.2.0
+django-autoslug==1.9.8
+
+django-admin-interface==0.12.0
+django-admin-generator==2.2.0
+#----- postgres client
+psycopg2-binary
+#----- deploy heroku
+gunicorn==20.0.4
+# django-heroku
+#----- covarage
+coverage==5.5
+# API
+djangorestframework==3.12.2
+django-filter==2.3.0
+drf_yasg2==1.19.4
+django-cors-headers==3.4.0
