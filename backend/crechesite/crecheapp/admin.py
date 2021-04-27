@@ -29,8 +29,10 @@ class BlogAdmin(admin.ModelAdmin):
 
 
 class GalerieAdmin(admin.ModelAdmin):
-    list_display = ('img', 'titre', 'status', 'date_add', 'date_upd')
+    list_display = ('img', 'album', 'status', 'date_add', 'date_upd')
+    #list_display = ('img', 'album', 'titre', 'status', 'date_add', 'date_upd')
     list_filter = (
+        'album',
         'status',
         'date_add',
     )
@@ -40,7 +42,6 @@ class GalerieAdmin(admin.ModelAdmin):
             return mark_safe(f'<img src="{obj.image.url}" style="height:80px; width:120px">')
         else:
             return 'Aucun fichier'
-
     img.short_description = "Prévisualisation"
 
 
@@ -92,12 +93,14 @@ class EnfantAdmin(admin.ModelAdmin):
         'nom',
         'prenom',
         'parent',
+        'groupe',
         'status',
         'date_add',
         'date_upd',
     )
     list_filter = (
         'parent',
+        'groupe',
         'status',
         'date_add',
     )
@@ -121,6 +124,36 @@ class ContactAdmin(admin.ModelAdmin):
     )
 
 
+class AlbumAdmin(admin.ModelAdmin):
+    list_display = (
+        'titre',
+
+        'status',
+        'date_add',
+        'date_upd',
+    )
+    list_filter = (
+        'status',
+        'date_add',
+        'date_upd',
+    )
+
+
+class GroupeAdmin(admin.ModelAdmin):
+    list_display = (
+        'nom',
+
+        'status',
+        'date_add',
+        'date_upd',
+    )
+    list_filter = (
+        'status',
+        'date_add',
+        'date_upd',
+    )
+
+
 def _register(model, admin_class):
     admin.site.register(model, admin_class)
 
@@ -131,3 +164,5 @@ _register(models.Utilisateur, UtilisateurAdmin)
 _register(models.Parent, ParentAdmin)
 _register(models.Enfant, EnfantAdmin)
 _register(models.Contact, ContactAdmin)
+_register(models.Album, AlbumAdmin)
+_register(models.Groupe, GroupeAdmin)

@@ -20,22 +20,35 @@ class BlogViewSet(viewsets.ModelViewSet):
     serializer_class = serializer.BlogSerializer
     queryset = models.Blog.objects.filter(status=True)
 
+
 class GalerieViewSet(viewsets.ModelViewSet):
     serializer_class = serializer.GalerieSerializer
     queryset = models.Galerie.objects.filter(status=True)
+
 
 class UtilisateurViewSet(viewsets.ModelViewSet):
     serializer_class = serializer.UtilisateurSerializer
     queryset = models.Utilisateur.objects.filter(status=True)
 
+
 class ParentViewSet(viewsets.ModelViewSet):
     serializer_class = serializer.ParentSerializer
     queryset = models.Parent.objects.filter(status=True)
+
 
 class EnfantViewSet(viewsets.ModelViewSet):
     serializer_class = serializer.EnfantSerializer
     queryset = models.Enfant.objects.filter(status=True)
 
+
+class AlbumViewSet(viewsets.ModelViewSet):
+    serializer_class = serializer.AlbumSerializer
+    queryset = models.Album.objects.filter(status=True)
+
+
+class GroupeViewSet(viewsets.ModelViewSet):
+    serializer_class = serializer.GroupeSerializer
+    queryset = models.Groupe.objects.filter(status=True)
 
 
 @csrf_exempt
@@ -43,7 +56,6 @@ class EnfantViewSet(viewsets.ModelViewSet):
 @api_view(['POST'])
 def loginapi(request):
     status, message, datas = False, "", ""
-
 
     if request.method == "POST":
         try:
@@ -60,7 +72,10 @@ def loginapi(request):
                 user = authenticate(username=utilisateur.username, password=password)
                 if user is not None:
                     try:
-                        profile = models.Utilisateur.objects.filter(user=utilisateur).values('id', 'user__username', 'user__email', 'is_directrice','is_accueillante').first()
+                        profile = models.Utilisateur.objects.filter(user=utilisateur).values('id', 'user__username',
+                                                                                             'user__email',
+                                                                                             'is_directrice',
+                                                                                             'is_accueillante').first()
                         if profile:
                             status = True
                             datas = profile
@@ -68,7 +83,10 @@ def loginapi(request):
                     except Exception as e:
                         print(e)
                     try:
-                        profile = models.Parent.objects.filter(user=utilisateur).values('id', 'user__username', 'user__email', 'localisation', 'telephone', 'enfant_nom', 'enfant_prenom').first()
+                        profile = models.Parent.objects.filter(user=utilisateur).values('id', 'user__username',
+                                                                                        'user__email', 'localisation',
+                                                                                        'telephone', 'enfant_nom',
+                                                                                        'enfant_prenom').first()
                         if profile:
                             status = True
                             datas = profile

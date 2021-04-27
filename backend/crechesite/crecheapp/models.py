@@ -30,9 +30,31 @@ class Blog(models.Model):
         return self.titre
 
 
-class Galerie(models.Model):
+class Album(models.Model):
     """Model definition for Galerie."""
     titre = models.CharField(max_length=250)
+
+    status = models.BooleanField(default=True)
+    date_add = models.DateTimeField(auto_now_add=True)
+    date_upd = models.DateTimeField(auto_now=True)
+
+    # TODO: Define fields here
+
+    class Meta:
+        """Meta definition for Galerie."""
+
+        verbose_name = 'Album'
+        verbose_name_plural = 'Albums'
+
+    def __str__(self):
+        """Unicode representation of Galerie."""
+        return self.titre
+
+
+class Galerie(models.Model):
+    """Model definition for Galerie."""
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='album_galerie', blank=True, null=True)
+    # titre = models.CharField(max_length=250, blank=True, null=True)
     image = models.FileField(upload_to="galerie/image", default="blog-1.jpg")
 
     status = models.BooleanField(default=True)
@@ -47,9 +69,6 @@ class Galerie(models.Model):
         verbose_name = 'Galerie'
         verbose_name_plural = 'Galeries'
 
-    def __str__(self):
-        """Unicode representation of Galerie."""
-        return self.titre
 
 
 class Utilisateur(models.Model):
@@ -99,6 +118,27 @@ class Parent(models.Model):
         return self.user.username
 
 
+class Groupe(models.Model):
+    """Model definition for Groupe."""
+    nom = models.CharField(max_length=250)
+
+    status = models.BooleanField(default=True)
+    date_add = models.DateTimeField(auto_now_add=True)
+    date_upd = models.DateTimeField(auto_now=True)
+
+    # TODO: Define fields here
+
+    class Meta:
+        """Meta definition for Groupe."""
+
+        verbose_name = 'Groupe'
+        verbose_name_plural = 'Groupes'
+
+    def __str__(self):
+        """Unicode representation of Groupe."""
+        return self.nom
+
+
 class Enfant(models.Model):
     """Model definition for Enfant."""
     # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='enfant')
@@ -106,6 +146,7 @@ class Enfant(models.Model):
     prenom = models.CharField(max_length=250, null=True, blank=True)
 
     parent = models.ForeignKey(Parent, on_delete=models.CASCADE, related_name='parent_enfant')
+    groupe = models.ForeignKey(Groupe, on_delete=models.CASCADE, related_name='groupe_enfant', blank=True, null=True)
 
     status = models.BooleanField(default=True)
     date_add = models.DateTimeField(auto_now_add=True)

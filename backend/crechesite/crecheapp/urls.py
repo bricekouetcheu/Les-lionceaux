@@ -27,9 +27,11 @@ rooter.register('galerie', api.GalerieViewSet, basename='galerie')
 rooter.register('utilisateur', api.UtilisateurViewSet, basename='utilisateur')
 rooter.register('parent', api.ParentViewSet, basename='parent')
 rooter.register('enfant', api.EnfantViewSet, basename='enfant')
+rooter.register('groupe', api.GroupeViewSet, basename='groupe')
+rooter.register('album', api.AlbumViewSet, basename='album')
 
 urlpatterns = [
-   # path('', views.home, name="home"),
+    #path('', views.home, name="home"),
     path('api/', include(rooter.urls)),
     path('api/login', api.loginapi),
     path('api/contact', contact.postcontact),
