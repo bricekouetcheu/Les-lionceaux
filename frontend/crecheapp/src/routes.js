@@ -27,7 +27,7 @@ const BaseRouter = () => {
             <Route exact path="/horaire" component={Horaire} />
             <Route exact path="/projet" component={Projet_pedagogie} />
             <Route exact path="/blog" component={Blog} />
-            <Route exact path="/blog-detail" component={Blog_detail} />
+            <Route exact path="/blog-detail/:id" component={Blog_detail} />
         </Switch>
     );
 };
