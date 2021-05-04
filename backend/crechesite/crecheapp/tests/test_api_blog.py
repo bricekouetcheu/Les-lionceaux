@@ -1,18 +1,9 @@
-import json
-import os
 import io
 
 from PIL import Image
-from django.conf import settings
-
-from django.urls import reverse
 from django.contrib.auth.models import User
 from rest_framework import status
-from rest_framework.authtoken.models import Token
 from rest_framework.test import APITestCase
-
-from crecheapp.models import Blog
-from crecheapp.serializer import BlogSerializer
 
 
 class BlogTestCase(APITestCase):

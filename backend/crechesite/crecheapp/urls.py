@@ -5,7 +5,7 @@ from rest_framework import permissions
 from drf_yasg2.views import get_schema_view
 from drf_yasg2 import openapi
 from . import views
-from .myviews import contact
+from .myviews import contact, login
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -23,7 +23,7 @@ schema_view = get_schema_view(
 rooter = routers.DefaultRouter()
 
 rooter.register('blog', api.BlogViewSet, basename='blog')
-rooter.register('galerie', api.GalerieViewSet, basename='galerie')
+rooter.register('galerie', api.GaleriesViewSet, basename='galerie')
 rooter.register('utilisateur', api.UtilisateurViewSet, basename='utilisateur')
 rooter.register('parent', api.ParentViewSet, basename='parent')
 rooter.register('enfant', api.EnfantViewSet, basename='enfant')
@@ -31,10 +31,11 @@ rooter.register('groupe', api.GroupeViewSet, basename='groupe')
 rooter.register('album', api.AlbumViewSet, basename='album')
 
 urlpatterns = [
-   #path('', views.home, name="home"),
+    path('', views.home, name="home"),
     path('api/', include(rooter.urls)),
-    path('api/login', api.loginapi),
+    path('api/login', login.loginapi),
     path('api/contact', contact.postcontact),
+    path('api/galerie-by-album/<str:slug>/', api.GalerieViewSet.as_view()),
 
     # Documentation de l'API
     path('apidoc/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
