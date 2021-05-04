@@ -1,74 +1,106 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { NavLink } from 'react-router-dom';
+
+import { NavLink, Redirect } from 'react-router-dom';
+import { useSelector, useDispatch } from "react-redux";
+
+import { retrieveAlbumDetail } from "../actions/album";
+import AlbumService from "../services/album.service";
+
+
+
+// Import SRLWrapper
+import { SRLWrapper } from "simple-react-lightbox";
+
+
 import Footer from '../components/footer';
 import Header from '../components/header';
-
 import Navbar from '../components/navbar';
 
-const Galerie = () => {
-    return (
-      <div class="body-home">
-      <Header/>
-      
-      <main class="main">
-      
-      <Navbar/>
-          <div class="main__content">
-              <div class="box-galerie">
-                  <div>
-                      <h2 class="second-title mb-4">Galeries</h2>
-                  </div>
-                  <div class="row">
-                      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                          <div class="galerie-item height-2">
-                              <a data-fancybox="gallery" href="../images/photo/galerie-1.jpg">
-                                  <img src="../images/photo/galerie-1.jpg"/>
-                              </a>
-                          </div>
-                          <div class="galerie-item height-1">
-                              <a data-fancybox="gallery" href="../images/photo/galerie-2.jpg">
-                                  <img src="../images/photo/galerie-2.jpg"/>
-                              </a>
-                          </div>
-                      </div>
-                      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                          <div class="galerie-item height-1">
-                              <a data-fancybox="gallery" href="../images/photo/galerie-3.jpg">
-                                  <img src="../images/photo/galerie-3.jpg"/>
-                              </a>
-                          </div>
-                          <div class="galerie-item height-1">
-                              <a data-fancybox="gallery" href="../images/photo/galerie-4.jpg">
-                                  <img src="../images/photo/galerie-4.jpg"/>
-                              </a>
-                          </div>
-                          <div class="galerie-item height-1">
-                              <a data-fancybox="gallery" href="../images/photo/galerie-5.jpg">
-                                  <img src="../images/photo/galerie-5.jpg"/>
-                              </a>
-                          </div>
-                      </div>
-                      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
-                          <div class="galerie-item height-1">
-                              <a data-fancybox="gallery" href="../images/photo/galerie-6.jpg">
-                                  <img src="../images/photo/galerie-6.jpg"/>
-                              </a>
-                          </div>
-                          <div class="galerie-item height-2">
-                              <a data-fancybox="gallery" href="../images/photo/galerie-7.jpg">
-                                  <img src="../images/photo/galerie-7.jpg"/>
-                              </a>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </main>
+const Galerie = (props) => {
 
-      <Footer/>
-     
-    </div>
+    console.log("Url Slug", props.match.params.slug);
+
+    const { user: currentUser } = useSelector((state) => state.auth);
+
+
+    const myGalerie = useSelector((state) => state.album);
+
+    console.log('My Galeriel', myGalerie);
+
+    // console.log("Test content", currentUser);
+
+    const initialTutorialState = {
+        slug: "",
+
+    };
+    const [currentTut, setCurrentTut] = useState(initialTutorialState);
+
+    const dispatch = useDispatch();
+
+    const getTut = slug => {
+        AlbumService.getAlbum(slug)
+            .then(response => {
+                setCurrentTut(response.data);
+                console.log("Data Galerie", response.data);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    };
+
+    useEffect(() => {
+        getTut(props.match.params.slug);
+    }, [props.match.params.slug]);
+
+
+
+    useEffect(() => {
+        dispatch(retrieveAlbumDetail(props.match.params.slug));
+    });
+
+
+    console.log("New Gar", currentTut.slug);
+
+
+    if (!currentUser) {
+        return <Redirect to="/login" />;
+    }
+
+    return (
+        <>
+            <Header />
+            <main class="main">
+                <Navbar />
+                <div class="main__content">
+
+                    <div class="box-galerie">
+                        <div>
+                            <h2 class="second-title mb-4"><NavLink to="/album">Galeries</NavLink></h2>
+                        </div>
+                        <SRLWrapper>
+                            <div class="row">
+
+                                {
+                                    myGalerie.map(td => (
+                                        <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <div class="galerie-item height-2">
+                                                <a data-fancybox="gallery" href={td.image}>
+                                                    <img src={td.image} alt="" />
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    ))
+                                }
+
+                            </div>
+                        </SRLWrapper>
+                    </div>
+                </div>
+            </main>
+            <Footer />
+        </>
     );
 };
 
