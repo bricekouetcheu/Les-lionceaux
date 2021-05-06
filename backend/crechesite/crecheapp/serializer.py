@@ -17,9 +17,12 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class BlogSerializer(serializers.ModelSerializer):
+    auteur_article = UserSerializer(many=False, read_only=True, required=False)
+
     class Meta:
         model = models.Blog
         fields = "__all__"
+        depth = 1
 
 
 class AlbumSerializer(serializers.ModelSerializer):
@@ -40,6 +43,7 @@ class GalerieSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Galerie
         fields = "__all__"
+        depth = 1
 
 
 class UtilisateurSerializer(serializers.ModelSerializer):
