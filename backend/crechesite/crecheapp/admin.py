@@ -30,7 +30,6 @@ class BlogAdmin(admin.ModelAdmin):
 
 class GalerieAdmin(admin.ModelAdmin):
     list_display = ('img', 'album', 'status', 'date_add', 'date_upd')
-    #list_display = ('img', 'album', 'titre', 'status', 'date_add', 'date_upd')
     list_filter = (
         'album',
         'status',
@@ -42,6 +41,7 @@ class GalerieAdmin(admin.ModelAdmin):
             return mark_safe(f'<img src="{obj.image.url}" style="height:80px; width:120px">')
         else:
             return 'Aucun fichier'
+
     img.short_description = "Prévisualisation"
 
 

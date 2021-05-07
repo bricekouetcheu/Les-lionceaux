@@ -91,7 +91,7 @@ const Login = (props) => {
     // && currentUserLogin.success
 
     if (success && currentUserLogin.success) {
-        return <Redirect to="/album" />;
+        return <Redirect to="/blog" />;
     }
 
 
@@ -168,5 +168,3 @@ const Login = (props) => {
 };
 
 export default Login;
-
-

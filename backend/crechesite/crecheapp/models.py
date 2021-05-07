@@ -12,7 +12,7 @@ class Blog(models.Model):
     titre = models.CharField(max_length=250)
     slug = AutoSlugField(populate_from='titre', unique=True, null=True, blank=True)
     description = models.TextField()
-    image = models.FileField(upload_to="blog/image")
+    image = models.FileField(upload_to="blog/image", default="blog-1.jpg")
     auteur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='auteur_article', null=True, blank=True)
 
     status = models.BooleanField(default=True)
@@ -47,7 +47,6 @@ class Album(models.Model):
         verbose_name_plural = 'Albums'
 
     def __str__(self):
-        """Unicode representation of Galerie."""
         return self.titre
 
 
@@ -68,7 +67,6 @@ class Galerie(models.Model):
 
         verbose_name = 'Galerie'
         verbose_name_plural = 'Galeries'
-
 
 
 class Utilisateur(models.Model):

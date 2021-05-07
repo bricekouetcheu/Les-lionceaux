@@ -5,9 +5,7 @@ export const LOGOUT = "LOGOUT";
 export const SET_MESSAGE = "SET_MESSAGE";
 export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 
+
 export const BLOG_LIST = "BLOG_LIST";
 export const DETAIL_BLOG = "DETAIL_BLOG";
-
-export const ALBUM_LIST = "ALBUM_LIST";
-export const DETAIL_ALBUM = "DETAIL_ALBUM";
 
