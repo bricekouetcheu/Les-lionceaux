@@ -1,1 +1,1 @@
-gunicorn --chdir backend/crechesite crechesite.wsgi
+web: gunicorn --chdir backend/crechesite crechesite.wsgi
