@@ -72,3 +72,13 @@ class EnfantSerializer(serializers.ModelSerializer):
         model = models.Enfant
         fields = "__all__"
         depth = 2
+
+
+class EnfantSerializer(serializers.ModelSerializer):
+    groupe_enfant = GroupeSerializer(many=True, required=False)
+    parent_enfant = ParentSerializer(many=True, required=False)
+
+    class Meta:
+        model = models.Enfant
+        fields = "__all__"
+        depth = 2

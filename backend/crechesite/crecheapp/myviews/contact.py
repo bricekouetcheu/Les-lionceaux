@@ -12,6 +12,7 @@ from rest_framework.decorators import api_view
 from crecheapp.schemaperso import contact_schema
 
 
+
 def validate_contact(contact):
     regex = re.compile("^(\+[ ]?)?((\d){1,2}[ ]?){8,}$")
     status = regex.match(contact.strip())
