@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "https://crechewebsite.herokuapp.com/api/";
+const API_URL = "https://crechesite.herokuapp.com/api/";
 
 
 const login = (username, password) => {
