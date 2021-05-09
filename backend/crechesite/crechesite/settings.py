@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'crechesite.herokuapp.com']
 
+CORS_ORIGIN_ALLOW_ALL = True
+
+
 
 # Application definition
 
@@ -94,12 +97,24 @@ WSGI_APPLICATION = 'crechesite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+}"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'osehutwm',
+        'USER': 'osehutwm',
+        'PASSWORD': 'oRm54gFreqs3MOwp7fbvXLxNtMXiYYkW',
+        'HOST': 'queenie.db.elephantsql.com',
+        'PORT': '5432',
+        'CONN_MAX_AGE': 60,
+    }
 }
+
 
 
 # Password validation
