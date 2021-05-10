@@ -103,7 +103,7 @@ WSGI_APPLICATION = 'crechesite.wsgi.application'
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }"""
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'osehutwm',
@@ -113,8 +113,18 @@ DATABASES = {
         'PORT': '5432',
         'CONN_MAX_AGE': 60,
     }
-}
+}"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'crechesite1',
+        'HOST': 'crechedb.cylean8ry9b7.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
 
+    }
+}
 
 
 # Password validation
