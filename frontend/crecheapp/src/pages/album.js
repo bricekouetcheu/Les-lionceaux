@@ -40,7 +40,7 @@ const Album = () => {
                             {
                                 myalbum.map(t => (
                                     <div class="col-lg-3 col-md-4 col-sm-4 col-6">
-                                        <NavLink to={`/album-detail/${t.slug}`} >
+                                        <NavLink to={`/album-detail/${t.id}`} >
                                             <div class="card-album">
                                                 <div class="card-album__img">
                                                     <img src="../images/c1.jpeg" alt="images" />
