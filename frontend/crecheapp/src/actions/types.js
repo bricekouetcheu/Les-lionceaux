@@ -1,4 +1,4 @@
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOGOUT = "LOGOUT";
 
@@ -9,3 +9,5 @@ export const CLEAR_MESSAGE = "CLEAR_MESSAGE";
 export const BLOG_LIST = "BLOG_LIST";
 export const DETAIL_BLOG = "DETAIL_BLOG";
 
+export const ALBUM_LIST = "ALBUM_LIST";
+export const DETAIL_ALBUM = "DETAIL_ALBUM";
