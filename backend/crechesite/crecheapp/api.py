@@ -20,7 +20,7 @@ class GalerieViewSet(generics.ListAPIView):
 
     def list(self, request, slug):
         queryset = self.get_queryset()
-        queryset = queryset.filter(Q(album__slug=slug))
+        queryset = queryset.filter(Q(album__id=int(slug)))
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
 

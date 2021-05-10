@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- favicon -->
+        <link rel="shortcut icon" href="../images/logo-nan.png" type="image/x-icon">
+        <!-- Owl Stylesheets -->
+        <link rel="stylesheet" href="../css/owl.carousel.min.css">
+        <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+        <!-- cdn css -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/dropzone.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <!-- fancybox -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+        <!-- cdn fontawasome -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <!-- javascript owl carousel -->
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/owl.carousel.js"></script>
+        <title>Facturation</title>
+    </head>
+    <body>
+        <div class="body-home">
+            <!-- header -->
+            <header class="header">
+                <div class="header__logo">
+                    <img src="../images/logo-nan.png" alt="logo site"/>
+                </div>
+                <div class="header__title">
+                    <h1>Crèche les lionceaux</h1>
+                </div>
+                <div class="header__identite flex-center">
+                    <p>
+                        identifiant
+                    </p>
+                    <button type="button" class="btn-profil">
+                        <img src="../images/icon/profil.svg" alt="icone">
+                    </button>
+                    <button type="button" class="btn-menu">
+                        <img src="../images/icon/menu.svg" alt="">
+                    </button>
+                    <div class="sous-menu">
+                        <ul>
+                            <li>
+                                <img src="../images/icon/france.svg" title="français" alt="langue français"/>
+                            </li>
+                            <li>
+                                <img src="../images/icon/anglais.jpg" title="anglais" alt="langue anglais"/>
+                            </li>
+                        </ul>
+                        <button type="button" class="btn-deconnect mt-3">Deconnexion</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- main -->
+            <main class="main">
+                <nav class="main__sidebar">
+                    <ul>
+                        <a href="index.html">
+                            <li>Accueil</li>
+                        </a>
+                        <a href="agenda.html">
+                            <li>Agenda</li>
+                        </a>
+                        <a href="facturation.html">
+                            <li>Facturation</li>
+                        </a>
+                        <a href="galerie.html">
+                            <li>Galerie</li>
+                        </a>
+                        <a href="blog.html">
+                            <li>Blog</li>
+                        </a>
+                        <a href="projet-pedag.html">
+                            <li>Projet Pedaogogique</li>
+                        </a>
+                        <a href="activite.html">
+                            <li>Activité</li>
+                        </a>
+                        <a href="contact.html">
+                            <li>Contact</li>
+                        </a>
+                    </ul>
+                    <a href="#" class="btn-sidebar">
+                        <button type="button" class="btn-orange btn-orange-width100">Connexion</button>
+                    </a>
+                </nav>
+                <div class="main__content">
+                    <!-- facturation -->
+                    <div class="facturation">
+                        <h2 class="second-title mb-4">Facturation</h2>
+                        <div class="facturation__form">
+                            <form class="form-row form-activite">
+                                <div class="col-md-12 mb-4">
+                                    <label for="date">Date</label>
+                                    <input type="date" id="date"/>
+                                </div>
+                                <div class="col-md-12 mb-4">
+                                    <label for="number">Facture N°</label>
+                                    <input type="text" id="number"/>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="enfant">Enfant</label>
+                                    <select name="" id="enfant">
+                                        <option value="0">Choisir enfant</option>
+                                        <option value="1">Nom enfant</option>
+                                        <option value="2">Nom enfant</option>
+                                        <option value="3">Nom enfant</option>
+                                        <option value="4">Nom enfant</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="service">Service</label>
+                                    <select name="" id="service">
+                                        <option value="0">Choisir service</option>
+                                        <option value="1">Petit</option>
+                                        <option value="2">Grand</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="periode">Periode Facturation</label>
+                                    <input type="date" id="periode"/>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="echeance">Echéance</label>
+                                    <input type="date" id="echeance"/>
+                                </div>
+                                <div class="form-row mt-5 article">
+                                    <div class="col-md-4">
+                                        <label for="article">Article</label>
+                                        <input type="text" id="article"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="quantité">Quantité</label>
+                                        <input type="text" id="quantité"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="prix">Prix unitaire</label>
+                                        <input type="text" id="prix"/>
+                                    </div>
+                                    <div class="col-md-12 text-right">
+                                        <button type="button" class="btn-del-article">
+                                            <img src="../images/icon/minus.svg" alt="supprimer">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-row mt-5 article">
+                                    <div class="col-md-4">
+                                        <label for="article">Article</label>
+                                        <input type="text" id="article"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="quantité">Quantité</label>
+                                        <input type="text" id="quantité"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="prix">Prix unitaire</label>
+                                        <input type="text" id="prix"/>
+                                    </div>
+                                    <div class="col-md-12 text-right">
+                                        <button type="button" class="btn-del-article">
+                                            <img src="../images/icon/minus.svg" alt="supprimer">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-row mt-5 article">
+                                    <div class="col-md-4">
+                                        <label for="article">Article</label>
+                                        <input type="text" id="article"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="quantité">Quantité</label>
+                                        <input type="text" id="quantité"/>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="prix">Prix unitaire</label>
+                                        <input type="text" id="prix"/>
+                                    </div>
+                                    <div class="col-md-12 text-right">
+                                        <button type="button" class="btn-del-article">
+                                            <img src="../images/icon/minus.svg" alt="supprimer">
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 mb-5">
+                                    <button type="button" class="btn-plus flex-center">
+                                        <img src="../images/icon/add.svg" alt="plus" title="Ajouter article">
+                                    </button>
+                                </div>
+                                <div class="col-md-12">
+                                    <a href="apercue-facturation.html">
+                                        <button type="button" class="btn-green">Aperçue</button>
+                                    </a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <!-- footer -->
+            <footer class="footer">
+                <ul>
+                    <a href="propos.html">
+                        <li>A Propos</li>
+                    </a>
+                    <a href="adresse.html">
+                        <li>Adresse</li>
+                    </a>
+                    <a href="horaire.html">
+                        <li>Horaire</li>
+                    </a>
+                </ul>
+            </footer>
+        </div>
+
+
+        <!-- cdn jquery et javascript -->
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/main.js"></script>
+        <script src="../js/dropzone.js"></script>
+    </body>
+</html>
