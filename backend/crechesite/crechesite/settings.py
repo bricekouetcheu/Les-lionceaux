@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     # Package
     'django_admin_generator',
     'rest_framework',
+    'rest_framework.authtoken',
     'drf_yasg2',
     'corsheaders',
     'django_filters',
@@ -117,11 +118,13 @@ WSGI_APPLICATION = 'crechesite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
+        'NAME': 'crechedb',
         'USER': 'postgres',
         'PASSWORD': 'crechesite1',
-        'HOST': 'crechedb.cylean8ry9b7.us-east-2.rds.amazonaws.com',
+        'HOST': 'database-18.cylean8ry9b7.us-east-2.rds.amazonaws.com',
         'PORT': '5432',
+        'CONN_MAX_AGE': 60,
+
 
     }
 }

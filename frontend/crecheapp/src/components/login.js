@@ -91,7 +91,7 @@ const Login = (props) => {
     // && currentUserLogin.success
 
     if (success && currentUserLogin.success) {
-        return <Redirect to="/blog" />;
+        return <Redirect to="/album" />;
     }
 
 
