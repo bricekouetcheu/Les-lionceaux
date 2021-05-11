@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # Package
+    'storages',
     'django_admin_generator',
     'rest_framework',
     'rest_framework.authtoken',
@@ -166,41 +167,33 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-USE_S3 = True
 
-if USE_S3:
-    # aws settings
-    AWS_LOCATION = 'crechestatic'
-    AWS_ACCESS_KEY_ID = "AKIA5TKXHV2VQGBRR6HP"
-    AWS_SECRET_ACCESS_KEY = "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"
-    AWS_STORAGE_BUCKET_NAME = "crechesite"
-    AWS_DEFAULT_ACL = None
+# aws settings
+AWS_LOCATION = 'crechestatic'
+AWS_ACCESS_KEY_ID = "AKIA5TKXHV2VQGBRR6HP"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_STORAGE_BUCKET_NAME = "crechesite"
+AWS_DEFAULT_ACL = None
 
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static'),
-    ]
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-    AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-    # s3 static settings
-    STATIC_LOCATION = 'crechestatic'
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-    STATICFILES_STORAGE = "crechesite.storage_backends.StaticStorage"
-    # s3 public media settings
-    PUBLIC_MEDIA_LOCATION = 'crechemedia'
-    FILEBROWSER_DIRECTORY = PUBLIC_MEDIA_LOCATION
-    DIRECTORY = PUBLIC_MEDIA_LOCATION
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'crechesite.storage_backends.PublicMediaStorage'
-    # s3 private media settings
-    PRIVATE_MEDIA_LOCATION = 'private'
-    PRIVATE_FILE_STORAGE = 'crechesite.storage_backends.PrivateMediaStorage'
-else :
-    STATIC_URL = '/static/'
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
-    STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+# s3 static settings
+STATIC_LOCATION = 'crechestatic'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
+STATICFILES_STORAGE = "crechesite.storage_backends.StaticStorage"
+# s3 public media settings
+PUBLIC_MEDIA_LOCATION = 'crechemedia'
+FILEBROWSER_DIRECTORY = PUBLIC_MEDIA_LOCATION
+DIRECTORY = PUBLIC_MEDIA_LOCATION
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+DEFAULT_FILE_STORAGE = 'crechesite.storage_backends.PublicMediaStorage'
+# s3 private media settings
+PRIVATE_MEDIA_LOCATION = 'private'
+PRIVATE_FILE_STORAGE = 'crechesite.storage_backends.PrivateMediaStorage'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
