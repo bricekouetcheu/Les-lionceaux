@@ -23,13 +23,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bj75j^=8x1dmrkz)+%kugl9-#1^1tf%j@@-=ebtm*-e(_56l#v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'crechesite.herokuapp.com']
 
 CORS_ORIGIN_ALLOW_ALL = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
-
+X_FRAME_OPTIONS='SAMEORIGIN' # only if django version >= 3.0
 
 # Application definition
 
@@ -66,7 +68,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-X_FRAME_OPTIONS='SAMEORIGIN' # only if django version >= 3.0
+
 
 ROOT_URLCONF = 'crechesite.urls'
 
