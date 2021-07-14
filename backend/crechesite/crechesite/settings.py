@@ -36,8 +36,7 @@ X_FRAME_OPTIONS='SAMEORIGIN' # only if django version >= 3.0
 
 # Application definition
 
-INSTALLED_APPS = [
-    'admin_interface',
+INSTALLED
     'colorfield',
     'django.contrib.admin',
     'django.contrib.auth',
