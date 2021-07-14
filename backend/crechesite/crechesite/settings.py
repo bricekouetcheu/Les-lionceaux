@@ -28,6 +28,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1', 'crechesite.herokuapp.com']
 
 CORS_ORIGIN_ALLOW_ALL = True
+AUTH_USER_MODEL = "utilisateurs.Utilisateur"
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
@@ -52,7 +53,12 @@ INSTALLED
     'corsheaders',
     'django_filters',
     # application
-    'crecheapp.apps.CrecheappConfig',
+    # 'crecheapp.apps.CrecheappConfig',
+    "utilisateurs.apps.UtilisateursConfig",
+    "blog.apps.BlogConfig",
+    "galerie.apps.GalerieConfig",
+    "agenda.apps.AgendaConfig",
+    "activite.apps.ActiviteConfig",
 ]
 
 MIDDLEWARE = [
@@ -100,12 +106,12 @@ WSGI_APPLICATION = 'crechesite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
-}"""
+}
 """DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -117,7 +123,7 @@ WSGI_APPLICATION = 'crechesite.wsgi.application'
         'CONN_MAX_AGE': 60,
     }
 }"""
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'crechedb',
@@ -129,7 +135,7 @@ DATABASES = {
 
 
     }
-}
+}"""
 
 
 # Password validation
