@@ -18,10 +18,26 @@ from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework import routers
+
+from activite.views import ActiviteViewSet
+from galerie.views import GalerieViewSet, AlbumViewSet
+from rest_framework.authtoken.views import obtain_auth_token
+
+"""
+Mise en place des routers de l'application Common
+"""
+rooter = routers.DefaultRouter()
+# rooter.register("", SearchAPIView, basename="search")
+rooter.register("activite", ActiviteViewSet, basename="activite")
+rooter.register("galerie", GalerieViewSet, basename="galerie")
+rooter.register("album", AlbumViewSet, basename="album")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('crecheapp.urls')),
+    path("api/", include(rooter.urls)),
+    path("api-token-auth/", obtain_auth_token, name="api_token_auth"),
 
 ]
 
