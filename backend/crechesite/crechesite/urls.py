@@ -22,6 +22,8 @@ from rest_framework import routers
 
 from activite.views import ActiviteViewSet
 from galerie.views import GalerieViewSet, AlbumViewSet
+from agenda.views import AgendaViewSet
+from blog.views import BlogViewSet
 from rest_framework.authtoken.views import obtain_auth_token
 
 """
@@ -32,12 +34,15 @@ rooter = routers.DefaultRouter()
 rooter.register("activite", ActiviteViewSet, basename="activite")
 rooter.register("galerie", GalerieViewSet, basename="galerie")
 rooter.register("album", AlbumViewSet, basename="album")
+rooter.register("agenda", AgendaViewSet, basename="agenda")
+rooter.register("blog", BlogViewSet, basename="blog")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('crecheapp.urls')),
     path("api/", include(rooter.urls)),
     path("api-token-auth/", obtain_auth_token, name="api_token_auth"),
+
 
 ]
 
