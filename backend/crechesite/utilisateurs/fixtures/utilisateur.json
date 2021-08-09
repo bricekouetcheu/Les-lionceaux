@@ -1,0 +1,71 @@
+[
+    {
+        "model": "utilisateurs.Utilisateur",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$84ogfPiCFirTC0Hnk6nZ8g$9NTcHCudxb1OStsUBIJrcp5sv09UUWLRgFKqmTyN+RI=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "george",
+            "first_name": "George",
+            "last_name": "Directrice",
+            "email": "d@gmail.com",
+            "localisation":"Bruxelle",
+            "telephone":"+34989987898",
+            "adresse":"Pingouin 1",
+            "is_directrice":true,
+            "is_accueillante":false,
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2021-06-12T10:43:46.942Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "utilisateurs.Utilisateur",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$84ogfPiCFirTC0Hnk6nZ8g$9NTcHCudxb1OStsUBIJrcp5sv09UUWLRgFKqmTyN+RI=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Annne",
+            "first_name": "Anna",
+            "last_name": "Accueillante",
+            "email": "acc@gmail.com",
+            "localisation":"Paris",
+            "telephone":"+33 69090901232",
+            "adresse":"22e",
+            "is_directrice":false,
+            "is_accueillante":true,
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-06-12T10:43:46.942Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "utilisateurs.Utilisateur",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$84ogfPiCFirTC0Hnk6nZ8g$9NTcHCudxb1OStsUBIJrcp5sv09UUWLRgFKqmTyN+RI=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "Karim",
+            "first_name": "Lali",
+            "last_name": "Parent",
+            "email": "parrent@gmail.com",
+            "localisation":"Paris",
+            "telephone":"+33 69090901233",
+            "adresse":"23e",
+            "is_directrice":false,
+            "is_parent":true,
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2021-06-12T10:43:46.942Z",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

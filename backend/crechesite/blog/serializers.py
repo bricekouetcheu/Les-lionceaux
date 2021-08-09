@@ -6,6 +6,7 @@ class BlogSerializer(serializers.ModelSerializer):
     """
     Serializer for Blog model.
     """
+    image = serializers.ImageField(required=False)
 
     class Meta:
         model = Blog

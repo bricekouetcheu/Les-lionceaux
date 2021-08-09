@@ -12,7 +12,7 @@ class Blog(models.Model):
     titre = models.CharField(max_length=250)
     slug = AutoSlugField(populate_from="titre", unique=True, null=True, blank=True)
     description = models.TextField()
-    image = models.FileField(upload_to="blog/image", default="blog-1.jpg")
+    image = models.FileField(upload_to="blog/image", default="blog-1.jpg", null=True, blank=True)
     auteur = models.ForeignKey(
         Utilisateur,
         on_delete=models.CASCADE,

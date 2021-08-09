@@ -1,0 +1,26 @@
+[
+    {
+        "model": "utilisateurs.Enfant",
+        "pk": 1,
+        "fields": {
+            "nom": "Karim",
+            "prenom":"Kali",
+            "parent":3,
+            "groupe":1,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    },
+    {
+        "model": "utilisateurs.Enfant",
+        "pk": 2,
+        "fields": {
+            "nom": "Karim",
+            "prenom":"Mali",
+            "parent":3,
+            "groupe":2,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    }
+]
