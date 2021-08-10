@@ -1,0 +1,26 @@
+[
+    {
+        "model": "blog.Blog",
+        "pk": 1,
+        "fields": {
+
+            "titre": "Blog 1",
+            "description": "Lorem ipum",
+            "auteur": 1,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    },
+    {
+        "model": "blog.Blog",
+        "pk": 2,
+        "fields": {
+
+            "titre": "Blog 2",
+            "description": "Lorem ipum",
+            "auteur": 1,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    }
+]
