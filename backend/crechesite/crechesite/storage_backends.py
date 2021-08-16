@@ -4,12 +4,12 @@ from django.conf import settings
 
 
 class StaticStorage(S3Boto3Storage):
-    location = 'crechestatic'
+    location = 'static'
     default_acl = 'public-read'
 
 
 class PublicMediaStorage(S3Boto3Storage, S3BotoStorageMixin):
-    location = 'crechemedia'
+    location = 'media'
     default_acl = 'public-read'
     file_overwrite = False
 
