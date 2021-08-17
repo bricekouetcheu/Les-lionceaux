@@ -1,0 +1,51 @@
+[
+    {
+        "model": "agenda.Agenda",
+        "pk": 1,
+        "fields": {
+            "date_evenement": "2021-06-12",
+            "heure": "10:43:46",
+            "titre_evenement": "Event petit et grand",
+            "description": "Lorem ipum",
+            "groupe": [
+                1,
+                2
+            ],
+            "visible": true,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    },
+    {
+        "model": "agenda.Agenda",
+        "pk": 2,
+        "fields": {
+            "date_evenement": "2021-06-12",
+            "heure": "10:43:46",
+            "titre_evenement": "Event petit",
+            "description": "Lorem ipum",
+            "groupe": [
+                2
+            ],
+            "visible": true,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    },
+    {
+        "model": "agenda.Agenda",
+        "pk": 3,
+        "fields": {
+            "date_evenement": "2021-06-12",
+            "heure": "10:43:46",
+            "titre_evenement": "Eventgrand",
+            "description": "Lorem ipum",
+            "groupe": [
+                1
+            ],
+            "visible": true,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    }
+]

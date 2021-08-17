@@ -14,6 +14,7 @@ class TestCase(DjangoTestCase):
         "groupe.json",
         "enfant.json",
         "blog.json",
+        "agenda.json",
 
 
     ]
