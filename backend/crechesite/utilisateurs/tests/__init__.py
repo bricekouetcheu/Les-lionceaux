@@ -15,6 +15,9 @@ class TestCase(DjangoTestCase):
         "enfant.json",
         "blog.json",
         "agenda.json",
+        "album.json",
+        "galerie.json",
+        "activite.json",
 
 
     ]
