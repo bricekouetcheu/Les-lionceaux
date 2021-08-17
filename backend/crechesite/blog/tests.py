@@ -26,7 +26,7 @@ class BlogTestCase(TestCase):
         Image.new('RGB', (100, 100)).save(image, 'JPEG')
         image.seek(0)
 
-        #data['image'] = SimpleUploadedFile('image.jpg', image.getvalue())
+        data['image'] = SimpleUploadedFile('image.jpg', image.getvalue())
 
         new_serializer = BlogSerializer(data=data)
         if not new_serializer.is_valid():

@@ -3,7 +3,7 @@
         "model": "blog.Blog",
         "pk": 1,
         "fields": {
-
+            "image": "blog-1.jpg",
             "titre": "Blog 1",
             "description": "Lorem ipum",
             "auteur": 1,
@@ -15,7 +15,7 @@
         "model": "blog.Blog",
         "pk": 2,
         "fields": {
-
+            "image": "blog-1.jpg",
             "titre": "Blog 2",
             "description": "Lorem ipum",
             "auteur": 1,

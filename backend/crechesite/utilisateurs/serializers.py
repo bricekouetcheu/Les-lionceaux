@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from utilisateurs.models import Utilisateur, Groupe
+from utilisateurs.models import Utilisateur, Groupe, Enfant
 
 
 class UtilisateurSerializer(serializers.ModelSerializer):
@@ -19,4 +19,14 @@ class GroupeSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Groupe
+        fields = "__all__"
+
+
+class EnfantSerializer(serializers.ModelSerializer):
+    """
+    Serializer for Enfant model.
+    """
+
+    class Meta:
+        model = Enfant
         fields = "__all__"
