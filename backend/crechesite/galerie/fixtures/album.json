@@ -1,0 +1,22 @@
+[
+    {
+        "model": "galerie.Album",
+        "pk": 1,
+        "fields": {
+            "titre": "Vaccance 2021",
+            "status": true,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    },
+    {
+        "model": "galerie.Album",
+        "pk": 2,
+        "fields": {
+            "titre": "Visite parc",
+            "status": true,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    }
+]

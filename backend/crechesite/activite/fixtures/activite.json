@@ -1,0 +1,33 @@
+[
+    {
+        "model": "activite.Activite",
+        "pk": 1,
+        "fields": {
+            "date_activite": "2021-06-12",
+            "heure_debut": "10:00:00",
+            "heure_fin": "14:00:00",
+            "groupe_set": [
+                1,
+                2
+            ],
+            "art": "danse",
+            "lecture": "pichou",
+            "remarque": "Lorem ipum"
+        }
+    },
+    {
+        "model": "activite.Activite",
+        "pk": 2,
+        "fields": {
+            "date_activite": "2021-08-12",
+            "heure_debut": "10:00:00",
+            "heure_fin": "14:00:00",
+            "groupe_set": [
+                2
+            ],
+            "art": "danse",
+            "lecture": "pichou",
+            "remarque": "Lorem ipum"
+        }
+    }
+]
