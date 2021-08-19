@@ -1,0 +1,38 @@
+[
+    {
+        "model": "galerie.Galerie",
+        "pk": 1,
+        "fields": {
+            "album": 1,
+            "titre": "Vaccance 2021",
+            "image": "test/test-1.jpg",
+            "status": true,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    },
+    {
+        "model": "galerie.Galerie",
+        "pk": 2,
+        "fields": {
+            "album": 1,
+            "titre": "Vaccance 2021 - 1",
+            "image": "test/test-1.jpg",
+            "status": true,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    },
+    {
+        "model": "galerie.Galerie",
+        "pk": 3,
+        "fields": {
+            "album": 2,
+            "titre": "Visite - 1",
+            "image": "test/test-1.jpg",
+            "status": true,
+            "date_add": "2021-06-12T10:43:46.942Z",
+            "date_upd": "2021-06-12T10:43:46.942Z"
+        }
+    }
+]
