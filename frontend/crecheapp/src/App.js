@@ -1,62 +1,50 @@
-import React, { useEffect } from "react";
+import React ,{Component} from 'react'
 
-import { useDispatch } from "react-redux";
-
-import { BrowserRouter as Router, } from "react-router-dom";
-
-import SimpleReactLightbox from 'simple-react-lightbox'
-
-import { clearMessage } from "./actions/message";
-
-import { history } from "./helpers/history";
+import {Switch,Route} from 'react-router-dom'
 
 
-
-// Fichier Routes
-import BaseRouter from './routes'
-
-
-
-function App() {
-
-  // const { user: currentUser } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    // sidebar responsive
-    const btnMenu = document.querySelector('.btn-menu');
-    const sideBar = document.querySelector('.main__sidebar');
-
-    return btnMenu.addEventListener('click', () => {
-      sideBar.classList.toggle('sidebar-responsive');
-    })
-  });
+//Pages
+import Home from './pages/home/Home'
+import Agenda from './pages/agenda/Agenda'
+import AjoutsAgenda from './pages/agenda/Ajouts'
+import VueAgenda from './pages/agenda/VueAgenda'
+import Galerie from './pages/galerie/Galerie'
+import Blog from './pages/blog/Blog'
+import BlogDetails from './pages/blog/Details'
+import Activites from './pages/activites/Activites'
+import AjoutsActivite from './pages/activites/Ajouts'
+import Contacts from './pages/contacts/Contacts'
+import Login from './pages/login/Login'
+import Address from './pages/address/Address'
+import Horaires from './pages/horaires/Horaires'
+import Albums from './pages/albums/Albums'
 
 
 
+class App extends Component {
 
+  render(){
+      return (
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/login" component={Login} exact />
+          <Route path="/agenda" component={Agenda} exact />
+          <Route path="/add-agenda" component={AjoutsAgenda} exact />
+          <Route path="/vue-agenda" component={VueAgenda} exact />
+          <Route path="/galerie" component={Galerie} exact />
+          <Route path="/blog" component={Blog} exact />
+          <Route path="/blog/:slug" component={BlogDetails} exact />
+          <Route path="/activity" component={Activites} exact />
+          <Route path="/add-activity" component={AjoutsActivite} exact />
+          <Route path="/contacts" component={Contacts} exact />
+          <Route path="/address" component={Address} exact />
+          <Route path="/horaires" component={Horaires} exact />
+          <Route path="/albums" component={Albums} exact />
+        </Switch>
+    );
 
-
-
-  useEffect(() => {
-    history.listen((location) => {
-      dispatch(clearMessage()); // clear message when changing location
-    });
-  }, [dispatch]);
-
-  // const logOut = () => {
-  //   dispatch(logout());
-  // };
-
-  return (
-    <SimpleReactLightbox>
-      <Router history={history}>
-
-        <BaseRouter />
-
-      </Router>
-    </SimpleReactLightbox>
-  );
+  }
+  
 }
 
 export default App;
