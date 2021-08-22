@@ -1,8 +1,9 @@
 import React ,{Component} from 'react'
+import {Switch,Route,withRouter} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-import {Switch,Route} from 'react-router-dom'
-
-
+//services
+import {isUserAuthenticated} from './store/actions/auth'
 //Pages
 import Home from './pages/home/Home'
 import Agenda from './pages/agenda/Agenda'
@@ -20,14 +21,28 @@ import Horaires from './pages/horaires/Horaires'
 import Albums from './pages/albums/Albums'
 
 
-
 class App extends Component {
+    constructor(props){
+      super(props)
+    }
+ 
+  
+  
+  componentDidMount(){
+    this.props.isUserAuthenticated()
+  }
 
   render(){
-      return (
-        <Switch>
+
+    let Routes = (
+      <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/login" component={Login} exact />
+      </Switch>
+    )
+    if(this.props.isUserAuth ){
+      Routes = (
+        <Switch>
           <Route path="/agenda" component={Agenda} exact />
           <Route path="/add-agenda" component={AjoutsAgenda} exact />
           <Route path="/vue-agenda" component={VueAgenda} exact />
@@ -40,11 +55,52 @@ class App extends Component {
           <Route path="/address" component={Address} exact />
           <Route path="/horaires" component={Horaires} exact />
           <Route path="/albums" component={Albums} exact />
+          <Route path="/" component={Home} exact />
+          <Route path="/login" component={Login} exact />
+        </Switch> 
+      )
+    }else{
+      Routes = (
+        <Switch>
+            <Route path="/" component={Home} exact />
+            <Route path="/login" component={Login} exact />
         </Switch>
+      )
+
+    }
+    
+      return (
+        <div>
+          {Routes}
+        </div>
+        // <Switch>
+        //   <Route path="/" component={Home} exact />
+        //   <Route path="/login" component={Login} exact />
+        //   <Route path="/agenda" component={Agenda} exact />
+        //   <Route path="/add-agenda" component={AjoutsAgenda} exact />
+        //   <Route path="/vue-agenda" component={VueAgenda} exact />
+        //   <Route path="/galerie" component={Galerie} exact />
+        //   <Route path="/blog" component={Blog} exact />
+        //   <Route path="/blog/:slug" component={BlogDetails} exact />
+        //   <Route path="/activity" component={Activites} exact />
+        //   <Route path="/add-activity" component={AjoutsActivite} exact />
+        //   <Route path="/contacts" component={Contacts} exact />
+        //   <Route path="/address" component={Address} exact />
+        //   <Route path="/horaires" component={Horaires} exact />
+        //   <Route path="/albums" component={Albums} exact />
+        // </Switch>
     );
 
   }
   
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  auth : state.auth,
+  isUserAuth : state.auth.token !== null
+})
+const mapDispatchToProps = dispatch => ({
+  isUserAuthenticated : () =>  dispatch(isUserAuthenticated())
+})
+
+export default  withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
