@@ -10,8 +10,13 @@ import Agenda from './pages/agenda/Agenda'
 import AjoutsAgenda from './pages/agenda/Ajouts'
 import VueAgenda from './pages/agenda/VueAgenda'
 import Galerie from './pages/galerie/Galerie'
+
+
 import Blog from './pages/blog/Blog'
 import BlogDetails from './pages/blog/Details'
+import AjoutBLog from './pages/blog/Ajout'
+import UpdateBlog from './pages/blog/Update'
+
 import Activites from './pages/activites/Activites'
 import AjoutsActivite from './pages/activites/Ajouts'
 import Contacts from './pages/contacts/Contacts'
@@ -25,70 +30,30 @@ class App extends Component {
     constructor(props){
       super(props)
     }
- 
-  
-  
-  componentDidMount(){
+   componentDidMount(){
     this.props.isUserAuthenticated()
-  }
+    }
 
   render(){
-
-    let Routes = (
-      <Switch>
+    return (
+        <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/login" component={Login} exact />
-      </Switch>
-    )
-    if(this.props.isUserAuth ){
-      Routes = (
-        <Switch>
           <Route path="/agenda" component={Agenda} exact />
           <Route path="/add-agenda" component={AjoutsAgenda} exact />
           <Route path="/vue-agenda" component={VueAgenda} exact />
           <Route path="/galerie" component={Galerie} exact />
           <Route path="/blog" component={Blog} exact />
           <Route path="/blog/:slug" component={BlogDetails} exact />
+          <Route path="/add-blog" component={AjoutBLog} exact/>
+          <Route path="/blog-update/:slug" component={UpdateBlog}  exact />
           <Route path="/activity" component={Activites} exact />
           <Route path="/add-activity" component={AjoutsActivite} exact />
           <Route path="/contacts" component={Contacts} exact />
           <Route path="/address" component={Address} exact />
           <Route path="/horaires" component={Horaires} exact />
           <Route path="/albums" component={Albums} exact />
-          <Route path="/" component={Home} exact />
-          <Route path="/login" component={Login} exact />
-        </Switch> 
-      )
-    }else{
-      Routes = (
-        <Switch>
-            <Route path="/" component={Home} exact />
-            <Route path="/login" component={Login} exact />
         </Switch>
-      )
-
-    }
-    
-      return (
-        <div>
-          {Routes}
-        </div>
-        // <Switch>
-        //   <Route path="/" component={Home} exact />
-        //   <Route path="/login" component={Login} exact />
-        //   <Route path="/agenda" component={Agenda} exact />
-        //   <Route path="/add-agenda" component={AjoutsAgenda} exact />
-        //   <Route path="/vue-agenda" component={VueAgenda} exact />
-        //   <Route path="/galerie" component={Galerie} exact />
-        //   <Route path="/blog" component={Blog} exact />
-        //   <Route path="/blog/:slug" component={BlogDetails} exact />
-        //   <Route path="/activity" component={Activites} exact />
-        //   <Route path="/add-activity" component={AjoutsActivite} exact />
-        //   <Route path="/contacts" component={Contacts} exact />
-        //   <Route path="/address" component={Address} exact />
-        //   <Route path="/horaires" component={Horaires} exact />
-        //   <Route path="/albums" component={Albums} exact />
-        // </Switch>
     );
 
   }
@@ -97,7 +62,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   auth : state.auth,
-  isUserAuth : state.auth.token !== null
 })
 const mapDispatchToProps = dispatch => ({
   isUserAuthenticated : () =>  dispatch(isUserAuthenticated())

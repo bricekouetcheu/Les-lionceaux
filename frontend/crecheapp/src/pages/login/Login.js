@@ -61,7 +61,7 @@ class Login extends Component {
                         <div className="mb-3">
                             <h2>Login <span className="dot"></span></h2>
                             <p>
-                                Bienvenu(e) sur Crèche  les lionceaux <br/>
+                                Bienvenu(e) sur Cretch de la creme <br/>
                                 Authentifiez-vous :
                             </p>
                         </div>
@@ -75,7 +75,7 @@ class Login extends Component {
                                 <>
                                     <button type="submit" className="btn-orange" >Connexion</button>
                                     <Link to="/">
-                                        <button type="button" className="ml-2 btn-orange">Accueil</button>
+                                        <button type="button" className="ml-2 btn-orange">Acceuil</button>
                                     </Link>  
                                 </>  
                             }

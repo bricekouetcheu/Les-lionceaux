@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
 
 
 //Components
@@ -7,9 +8,22 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import {Footer} from '../../components/footer/Footer'
 
 import Galerie2 from '../../assets/images/photo/galerie-2.jpg'
+import { blogDetailService } from '../../store/actions/blog';
 
 class BlogDetails extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            slug : this.props.match.params.slug
+        }
+
+    }
+    componentDidMount(){
+        this.props.blogDetailService(this.state.slug)
+    }
     render() {
+        const {titre,description,image,auteur,date_add} = this.props.blog.blog
+
         return (
             <div className="body-home">
                 {/* Header */}
@@ -21,25 +35,16 @@ class BlogDetails extends Component {
                         <div class="blog">
                             <h2 class="second-title mb-4">Blog detail</h2>
                             <div class="blog-img">
-                                <img src={Galerie2} alt="image" />
+                                <img src={image} alt="image" />
                             </div>
                             <div class="blog-text">
-                                <h3 class="third-title">Titre du blog</h3>
+                                <h3 class="third-title">{titre}</h3>
                                 <ul>
-                                    <li><strong>Auteur </strong>: Zed Junior</li>
-                                    <li><strong>Date </strong>: 18/04/2021</li>
+                                    <li><strong>Auteur </strong>: {auteur}</li>
+                                    <li><strong>Date </strong>: {date_add}</li>
                                 </ul>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil accusantium velit,
-                                    nobis similique, magnam eligendi laudantium tempore aperiam beatae corrupti perferendis,
-                                    fugiat vero odio ut amet numquam. Ducimus, totam illo?
-                                    Dolores ullam delectus fuga dolore ex deserunt non accusantium reiciendis consequuntur
-                                    minus nam, quam quidem earum illo? Dolorum libero voluptas cumque harum aut minima
-                                    consequuntur
-                                    magni, nemo vero eligendi distinctio?
-                                    Labore rerum voluptate minima architecto sapiente dolorem illum in delectus ipsa suscipit!
-                                    Ea tempore quae magnam nostrum porro eveniet rem odio, dolore nemo a distinctio quam illum
-                                    fugiat! Totam, nulla.
+                                    {description}
                                 </p>
                             </div>
                         </div>
@@ -51,4 +56,9 @@ class BlogDetails extends Component {
     }
 }
 
-export default BlogDetails;
+const mapStateToProps = state => ({auth : state.auth,blog : state.blog})
+const mapDispatchToProps = dispatch => ({
+    blogDetailService : (id) => dispatch(blogDetailService(id))
+})
+
+export default  connect(mapStateToProps,mapDispatchToProps)(BlogDetails);

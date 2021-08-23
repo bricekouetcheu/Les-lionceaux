@@ -31,13 +31,11 @@ export const loginService = (data) => {
     return async (dispatch) => {
         try{
             dispatch(loginStart())
-            console.log('data',data)
             const response = await userLogin(data)
             
             console.log('response',response)
             if(response.token){
                 const user = await getUserInfo(data.username)
-                console.log('user infos=',user.results)
                 // dispatch(setUsername(user.results))
                 localStorage.setItem('token',response.token)
                 localStorage.setItem('user',JSON.stringify(user.results))
