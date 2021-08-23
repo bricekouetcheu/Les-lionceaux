@@ -12,6 +12,7 @@ import store from './store'
 //IMPORT CSS
 import './assets/css/bootstrap.min.css'
 import './assets/css/dropzone.css'
+import './assets/css/loader.css'
 // import './assets/css/owl.carousel.min.css'
 // import './assets/css/owl.theme.default.min.css'
 import './assets/css/loader.css'
