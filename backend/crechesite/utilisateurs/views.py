@@ -4,7 +4,7 @@ from utilisateurs.serializers import (
     GroupeSerializer,
     EnfantSerializer,
 )
-from drf_multiple_model.views import ObjectMultipleModelAPIView
+#from drf_multiple_model.views import ObjectMultipleModelAPIView
 from utilisateurs.models import Utilisateur, Groupe, Enfant
 from rest_framework import filters
 from django.http import JsonResponse
