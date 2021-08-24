@@ -1,14 +1,13 @@
-import {BASE_URL} from '../../config/urls/base'
+import {BASE_URL,BASE_URL_II} from '../../config/urls/base'
 
 
 export const userLogin = async (userdata) => {
-    const loginUrl = `${BASE_URL}api-token-auth/`
-
+    const loginUrl = `${BASE_URL_II}api-token-auth/`
     const options = {
         method : 'POST',
         body : JSON.stringify(userdata),
         headers : {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         }
     }
 
@@ -19,7 +18,7 @@ export const userLogin = async (userdata) => {
 
 
 export const getUserInfo = async (username) => {
-    const userInfosUrl = `${BASE_URL}api/utilisateur/?username=${username}`
+    const userInfosUrl = `${BASE_URL}utilisateur/?username=${username}`
 
     const options = {
         method : 'GET',
