@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import {Link, NavLink} from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 class Sidebar extends Component {
     render() {
@@ -14,7 +14,7 @@ class Sidebar extends Component {
                     <Link to="/agenda">
                         <li>Agenda</li>
                     </Link>
-                    <Link to="/galerie">
+                    <Link to="/albums">
                         <li>Galerie</li>
                     </Link>
                     <Link to="/blog">

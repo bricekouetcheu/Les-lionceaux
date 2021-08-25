@@ -1,112 +1,97 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+
+import { agendaListService,deleteAgendaService } from '../../store/actions/agenda';
 
 
 //Components
 import Header from '../../components/header/Header'
 import Sidebar from '../../components/sidebar/Sidebar'
 import {Footer} from '../../components/footer/Footer'
+import {Loader} from '../../components/loader/Loader'
+
 
 class Agenda extends Component {
+    
+    constructor(props) {
+        super(props)
+    }
+
+    componentDidMount(){
+        this.props.agendaListService()
+    }
+
+    goToDetails = (id) => this.props.history.push(`/vue-agenda/${id}`)
+    goToUpdate = (id) => this.props.history.push(`/agenda-update/${id}`)
+    deleteAgenda = async (id) => {
+        await this.props.deleteAgendaService(id)
+    }
+
     render() {
+        let Agenda = (
+            <main className="main">
+                    <Sidebar/>
+                    {this.props.agenda.loading || !this.props.agenda.agendas ?
+                    <div className="w-100 d-flex justify-content-center align-items-center">
+                        <Loader/>
+                    </div> : 
+                    <div className="main__content">
+                    {/*Agenda */}
+                        <div className="agenda">
+                            <div className="activite__title">
+                                <h2 className="second-title mb-4">Agenda</h2>
+                                <Link to="/add-agenda"><button type="button"
+                                        className="btn-default btn-green">Ajouter</button>
+                                </Link>
+                            </div>
+                            {this.props.agenda.agendas.map((item,index)=> {
+                                return(
+                                    <div className="agenda__item" key={item.id}>
+                                        <h3 className="text-center">{item.titre_evenement}</h3>
+                                        <div className="agenda__item--date">
+                                            <div className="day flex-center">
+                                                <p>{item.id}</p>
+                                            </div>
+                                            <p>{item.date_evenement}</p>
+                                            <p className="m-3">à</p>
+                                            <p>{item.heure}</p>
+                                        </div>
+                                        <div class="agenda__item--content">
+                                            <p>
+                                                {item.description}
+                                            </p>
+                                        </div>
+                                        <div className='text-right mt-3'>
+                                            <button className="btn-orange" onClick={()=> this.goToDetails(item.id)}>Voir plus</button>
+                                            <button type="button" className="btn-dafult btn-green ml-2" onClick={()=> this.goToUpdate(item.id)}>
+                                                Modifier   
+                                            </button>
+                                            <button className="btn btn-danger ml-3" onClick={()=> this.deleteAgenda(item.id)}>Supprimer</button>
+                                        </div>
+                                    </div>
+                                )
+                            })}    
+                        </div>
+                    </div>
+                }
+            </main>
+        )
         return (
             <div className="body-home">
                 {/* Header */}
                 <Header title="Crèche les lionceaux" />
-
-                <main className="main">
-                    <Sidebar/>
-                    <div class="main__content">
-                    {/*Agenda */}
-                        <div class="agenda">
-                            <div class="activite__title">
-                                <h2 class="second-title mb-4">Agenda</h2>
-                                <Link to="/add-agenda"><button type="button"
-                                        class="btn-default btn-green">Ajouter</button>
-                                </Link>
-                            </div>
-                            <div class="agenda__item">
-                                <div class="agenda__item--date">
-                                    <div class="day flex-center">
-                                        <p>01</p>
-                                    </div>
-                                    <p>Avril 2021</p>
-                                </div>
-                                <div class="agenda__item--content">
-                                    <p>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere,
-                                        quas ipsum! Animi veritatis deserunt reiciendis nesciunt ut ipsam vero
-                                        omnis laborum totam consequuntur dolores, eius esse maxime possimus ratione error.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="agenda__item">
-                                <div class="agenda__item--date">
-                                    <div class="day flex-center">
-                                        <p>02</p>
-                                    </div>
-                                    <p>Avril 2021</p>
-                                </div>
-                                <div class="agenda__item--content">
-                                    <p>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere,
-                                        quas ipsum! Animi veritatis deserunt reiciendis nesciunt ut ipsam vero
-                                        omnis laborum totam consequuntur dolores, eius esse maxime possimus ratione error.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="agenda__item">
-                                <div class="agenda__item--date">
-                                    <div class="day flex-center">
-                                        <p>03</p>
-                                    </div>
-                                    <p>Avril 2021</p>
-                                </div>
-                                <div class="agenda__item--content">
-                                    <p>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere,
-                                        quas ipsum! Animi veritatis deserunt reiciendis nesciunt ut ipsam vero
-                                        omnis laborum totam consequuntur dolores, eius esse maxime possimus ratione error.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="agenda__item">
-                                <div class="agenda__item--date">
-                                    <div class="day flex-center">
-                                        <p>04</p>
-                                    </div>
-                                    <p>Avril 2021</p>
-                                </div>
-                                <div class="agenda__item--content">
-                                    <p>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere,
-                                        quas ipsum! Animi veritatis deserunt reiciendis nesciunt ut ipsam vero
-                                        omnis laborum totam consequuntur dolores, eius esse maxime possimus ratione error.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="agenda__item">
-                                <div class="agenda__item--date">
-                                    <div class="day flex-center">
-                                        <p>05</p>
-                                    </div>
-                                    <p>Avril 2021</p>
-                                </div>
-                                <div class="agenda__item--content">
-                                    <p>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere,
-                                        quas ipsum! Animi veritatis deserunt reiciendis nesciunt ut ipsam vero
-                                        omnis laborum totam consequuntur dolores, eius esse maxime possimus ratione error.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
+                    {Agenda}
                 <Footer/>
             </div>
         );
     }
 }
 
-export default Agenda;
+const mapStateToProps = state => ({blog : state.blog,auth : state.auth, agenda : state.agenda})
+const mapDispatchToProps = dispatch => ({
+    agendaListService : () => dispatch(agendaListService()),
+    deleteAgendaService : (id) => dispatch(deleteAgendaService(id))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(Agenda) ;

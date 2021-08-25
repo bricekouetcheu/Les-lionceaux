@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
+
+
+import { agendaDetailService } from '../../store/actions/agenda';
 
 
 //Components
@@ -8,7 +12,19 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import {Footer} from '../../components/footer/Footer'
 
 class VueAgenda extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            id : this.props.match.params.id
+        }
+
+    }
+    componentDidMount(){
+        this.props.agendaDetailService(this.state.id)
+    }
+
     render() {
+        const {id,date_evenement,titre_evenement,description,date_add,date_upd,heure} = this.props.agenda.agenda
         return (
             <div className="body-main">
                 {/* Header */}
@@ -23,36 +39,37 @@ class VueAgenda extends Component {
                                 <li>
                                     <Link to="/agenda">Agenda</Link>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <Link to="/add-agenda">Ajout</Link>
-                                </li>
+                                </li> */}
                                 <li>
                                     <Link to="vue-agenda">Aperçue</Link>
                                 </li>
                             </ul>
                             <div class="agenda__item">
+                            <h3 className="text-center">{titre_evenement}</h3>
                                 <div class="agenda__item--date">
                                     <div class="day flex-center">
-                                        <p>01</p>
+                                        <p>{id}</p>
                                     </div>
-                                    <p>Avril 2021</p>
+                                    <p>{date_evenement}</p>
+                                    <p className="m-3">à</p>
+                                    <p>{heure}</p>
                                 </div>
                                 <div class="agenda__item--content">
                                     <p>
-                                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere,
-                                        quas ipsum! Animi veritatis deserunt reiciendis nesciunt ut ipsam vero
-                                        omnis laborum totam consequuntur dolores, eius esse maxime possimus ratione error.
+                                        {description}
                                     </p>
                                 </div>
                             </div>
                             <div>
-                                <a href="#">
+                                {/* <a href="#">
                                     <button type="button" class="btn-dafult btn-green" data-toggle="modal"
                                         data-target="#exampleModalCenter">
                                         Modifier
                                     </button>
-                                </a>
-                                <button type="button" class="btn-dafult btn-orange">Valiter</button>
+                                </a> */}
+                                {/* <Link to="/agenda">Agenda</Link> */}
                             </div>
                         </div>
                     </div>
@@ -63,5 +80,9 @@ class VueAgenda extends Component {
         );
     }
 }
+const mapStateToProps = state => ({auth : state.auth,blog : state.blog,agenda : state.agenda})
+const mapDispatchToProps = dispatch => ({
+    agendaDetailService : (id) => dispatch(agendaDetailService(id))
+})
 
-export default VueAgenda;
+export default connect(mapStateToProps,mapDispatchToProps)(VueAgenda);
