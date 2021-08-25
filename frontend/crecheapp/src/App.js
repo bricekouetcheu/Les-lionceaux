@@ -43,26 +43,6 @@ class App extends Component {
   render() {
     return (
 
-        <Switch>
-          <Route path="/" component={Home} exact />
-          <Route path="/login" component={Login} exact />
-          <Route path="/agenda" component={Agenda} exact />
-          <Route path="/add-agenda" component={AjoutsAgenda} exact />
-          <Route path="/vue-agenda" component={VueAgenda} exact />
-          <Route path="/galerie" component={Galerie} exact />
-          <Route path="/blog" component={Blog} exact />
-          <Route path="/blog/:slug" component={BlogDetails} exact />
-          <Route path="/add-blog" component={AjoutBLog} exact/>
-          <Route path="/blog-update/:slug" component={UpdateBlog}  exact />
-          <Route path="/activity" component={Activites} exact />
-          <Route path="/add-activity" component={AjoutsActivite} exact />
-          <Route path="/contacts" component={Contacts} exact />
-          <Route path="/address" component={Address} exact />
-          <Route path="/horaires" component={Horaires} exact />
-          <Route path="/albums" component={Albums} exact />
-          <Route path="/albums-galerie/:id" component={AlbumsGalerie} />
-        </Switch>
-
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/login" component={Login} exact />
