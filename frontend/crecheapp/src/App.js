@@ -17,13 +17,16 @@ import BlogDetails from './pages/blog/Details'
 import AjoutBLog from './pages/blog/Ajout'
 import UpdateBlog from './pages/blog/Update'
 
+import Albums from './pages/albums/Albums'
+import AlbumsGalerie from './pages/albums/AlbumsGalerie'
+
 import Activites from './pages/activites/Activites'
 import AjoutsActivite from './pages/activites/Ajouts'
 import Contacts from './pages/contacts/Contacts'
 import Login from './pages/login/Login'
 import Address from './pages/address/Address'
 import Horaires from './pages/horaires/Horaires'
-import Albums from './pages/albums/Albums'
+
 
 
 class App extends Component {
@@ -53,6 +56,7 @@ class App extends Component {
           <Route path="/address" component={Address} exact />
           <Route path="/horaires" component={Horaires} exact />
           <Route path="/albums" component={Albums} exact />
+          <Route path="/albums-galerie/:id" component={AlbumsGalerie} />
         </Switch>
     );
 
