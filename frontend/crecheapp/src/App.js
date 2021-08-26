@@ -13,6 +13,9 @@ import VueAgenda from './pages/agenda/VueAgenda'
 import UpdateAgenda from './pages/agenda/Update'
 
 import Galerie from './pages/galerie/Galerie'
+import Albums from './pages/albums/Albums'
+import AlbumsGalerie from './pages/albums/AlbumsGalerie'
+import AjoutAlbum from './pages/albums/Ajout'
 
 
 import Blog from './pages/blog/Blog'
@@ -22,11 +25,11 @@ import UpdateBlog from './pages/blog/Update'
 
 import Activites from './pages/activites/Activites'
 import AjoutsActivite from './pages/activites/Ajouts'
+import UpdateActivite from './pages/activites/Update'
 import Contacts from './pages/contacts/Contacts'
 import Login from './pages/login/Login'
 import Address from './pages/address/Address'
 import Horaires from './pages/horaires/Horaires'
-import Albums from './pages/albums/Albums'
 
 
 class App extends Component {
@@ -52,11 +55,14 @@ class App extends Component {
         <Route path="/add-blog" component={AjoutBLog} exact />
         <Route path="/blog-update/:slug" component={UpdateBlog} exact />
         <Route path="/activity" component={Activites} exact />
-        <Route path="/add-activity" component={AjoutsActivite} exact />
+          <Route path="/add-activity" component={AjoutsActivite} exact />
+          <Route path='/activity-update/:id' component={UpdateActivite} exact />
         <Route path="/contacts" component={Contacts} exact />
         <Route path="/address" component={Address} exact />
         <Route path="/horaires" component={Horaires} exact />
         <Route path="/albums" component={Albums} exact />
+        <Route path="/albums-galerie/:id" component={AlbumsGalerie} />
+        <Route path="/add-album" component={AjoutAlbum} exact />
       </Switch>
     );
 
