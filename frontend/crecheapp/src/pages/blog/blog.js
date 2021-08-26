@@ -47,7 +47,7 @@ class Blog extends Component {
                         <div class="blog">
                             <h2 class="second-title mb-4">Blogs</h2>
                             {/* Utilisateur connecté  ?  */}
-                            {this.props.auth.token ?
+                            {this.props.auth.username[0].is_directrice ?
                                 <Link to="/add-blog"><button type="button"
                                     class="btn-default btn-green text-right">Ajouter</button>
                                 </Link> : null

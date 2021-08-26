@@ -41,7 +41,7 @@ class Agenda extends Component {
                         <div className="agenda">
                             <div className="activite__title">
                                 <h2 className="second-title mb-4">Agenda</h2>
-                                {this.props.auth.token ?
+                                {this.props.auth.username[0].is_directrice ?
                                     <Link to="/add-agenda"><button type="button"
                                         className="btn-default btn-green">Ajouter</button>
                                     </Link>
@@ -68,13 +68,15 @@ class Agenda extends Component {
                                         <div className='text-right mt-3'>
                                             <button className="btn-orange" onClick={() => this.goToDetails(item.id)}>Voir plus</button>
                                             {this.props.auth.token ?
-
-                                                <>
-                                                    <button type="button" className="btn-dafult btn-green ml-2" onClick={() => this.goToUpdate(item.id)}>
-                                                        Modifier
-                                                    </button>
-                                                    <button className="btn btn-danger ml-3" onClick={() => this.deleteAgenda(item.id)}>Supprimer</button>
-
+                                                <>{
+                                                    this.props.auth.username[0].is_directrice ?
+                                                        <>
+                                                            <button type="button" className="btn-dafult btn-green ml-2" onClick={() => this.goToUpdate(item.id)}>
+                                                                Modifier
+                                                            </button>
+                                                            <button className="btn btn-danger ml-3" onClick={() => this.deleteAgenda(item.id)}>Supprimer</button>
+                                                        </> : null
+                                                }
                                                 </> : null
                                             }
                                         </div>
