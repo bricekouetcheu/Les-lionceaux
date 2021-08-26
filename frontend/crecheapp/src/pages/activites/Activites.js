@@ -44,6 +44,7 @@ class Activites extends Component {
                                 <h2 className="second-title mb-4">Activités</h2>
                                 {this.props.auth.token ?
                                     
+
                                     <Link to="/add-activity"><button type="button"
                                         className="btn-default btn-green">Ajouter</button></Link>
                                     : null
@@ -74,14 +75,11 @@ class Activites extends Component {
                                                 <div className="p-3">
                                                     {this.props.auth.token ?
 
+
                                                         <>
-                                                            {
-                                                                this.props.auth.username[0].is_parent ?
-                                                                    null : <>
-                                                                        <button className="btn btn-success" onClick={() => this.goToUpdate(item.id)}>Modifier</button>
-                                                                        <button className="btn btn-danger ml-2" onClick={() => this.deleteActivite(item.id)}>Supprimer</button>
-                                                                    </>
-                                                            }
+                                                            <button className="btn btn-success" onClick={() => this.goToUpdate(item.id)}>Modifier</button>
+                                                            <button className="btn btn-danger ml-2" onClick={() => this.deleteActivite(item.id)}>Supprimer</button>
+
                                                         </> : null
                                                     }
                                                 </div>
