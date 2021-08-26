@@ -29,7 +29,8 @@ class Login extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        const {username,password} = this.state
+        const { username, password } = this.state
+        
         const data = {
             username,
             password
@@ -67,9 +68,9 @@ class Login extends Component {
                         </div>
                         <form className="form-login" onSubmit={this.handleSubmit}>
                             <label htmlFor="identifiant">Identifiant</label>
-                            <input type="text" id="identifiant" placeholder="AZERTY5112"  value={username}  onChange={(e) => this.setState({username : e.target.value})}/>
+                            <input type="text" id="identifiant" required placeholder="AZERTY5112"  value={username}  onChange={(e) => this.setState({username : e.target.value})}/>
                             <label htmlFor="password">Mot de passe</label>
-                            <input type="password" id="password" placeholder=".........."  value={password} onChange={(e) => this.setState({password : e.target.value})}/>
+                            <input type="password" id="password" required placeholder=".........."  value={password} onChange={(e) => this.setState({password : e.target.value})}/>
                             {this.props.auth.pending ? 
                                 <Loader/> : 
                                 <>

@@ -30,6 +30,7 @@ class Albums extends Component {
         this.props.history.push(`/albums-galerie/${id}`)
     }
     render() {
+
         let Albums = (
             <main className="main">
                 <Sidebar />
