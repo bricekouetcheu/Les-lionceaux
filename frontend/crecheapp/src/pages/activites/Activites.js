@@ -42,11 +42,11 @@ class Activites extends Component {
                         <div className="activite">
                             <div className="activite__title">
                                 <h2 className="second-title mb-4">Activités</h2>
-                                {this.props.auth.token ?
+                                {this.props.auth.username[0].is_parent ?
                                     
-                                    <Link to="/add-activity"><button type="button"
-                                        className="btn-default btn-green">Ajouter</button></Link>
-                                    : null
+                                   
+                                    null: <Link to="/add-activity"><button type="button"
+                                    className="btn-default btn-green">Ajouter</button></Link>
                                 }
                             </div>
                             <div class="row">
