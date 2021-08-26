@@ -19,6 +19,21 @@ const albumGalerie = async (id) => {
     const data = response.json()
     return data
 }
+const createAlbum = async (albumdata) => {
+    const url = `${BASE_URL}album/`
+
+    
+    const options = {
+            method : 'POST',
+            body : JSON.stringify(albumdata),
+            headers : {
+                'Content-Type' : 'application/json'
+            }
+        }
+        const response = await fetch(url,options)
+        const data = response.json()
+    return data 
+}
 
 
-export {albumList,albumGalerie}
+export {albumList,albumGalerie,createAlbum}

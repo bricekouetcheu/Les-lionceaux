@@ -1,6 +1,6 @@
 import {SET_ALBUM_GALERIE, SET_ALBUM_LIST,SET_ALBUM_LOADING} from '../types'
 
-import {albumList,albumGalerie} from '../../services/galerie'
+import {albumList,albumGalerie,createAlbum} from '../../services/galerie'
 
 
 export const setAlbumList = (albums) => ({type : SET_ALBUM_LIST,albums})
@@ -42,4 +42,19 @@ export const albumsGalerieService = (id) => {
             console.log('e',e)
         }
     }
-}   
+}
+
+export const createAlbumService = (data) =>{
+    return async () => {
+        try{
+            const response = await createAlbum(data)
+            if(response.id){
+                console.log('created success')
+            }
+        }
+        catch(e){
+            console.log(e)
+        }
+    }
+
+}
