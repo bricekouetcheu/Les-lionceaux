@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django_admin_generator',
     'rest_framework',
     'rest_framework.authtoken',
-    'drf_yasg2',
+    'drf_yasg',
     'corsheaders',
     'django_filters',
     # application
