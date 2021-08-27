@@ -42,10 +42,11 @@ class Activites extends Component {
                         <div className="activite">
                             <div className="activite__title">
                                 <h2 className="second-title mb-4">Activités</h2>
-                                {this.props.auth.token ?
-                                    <Link to="/add-activity"><button type="button"
-                                        className="btn-default btn-green">Ajouter</button></Link>
-                                    : null
+                                {this.props.auth.username[0].is_parent ?
+                                    
+                                   
+                                    null: <Link to="/add-activity"><button type="button"
+                                    className="btn-default btn-green">Ajouter</button></Link>
                                 }
                             </div>
                             <div class="row">
@@ -72,9 +73,15 @@ class Activites extends Component {
                                                 </div>
                                                 <div className="p-3">
                                                     {this.props.auth.token ?
+
                                                         <>
-                                                            <button className="btn btn-success" onClick={() => this.goToUpdate(item.id)}>Modifier</button>
-                                                            <button className="btn btn-danger ml-2" onClick={() => this.deleteActivite(item.id)}>Supprimer</button>
+                                                            {
+                                                                this.props.auth.username[0].is_parent ?
+                                                                    null : <>
+                                                                        <button className="btn btn-success" onClick={() => this.goToUpdate(item.id)}>Modifier</button>
+                                                                        <button className="btn btn-danger ml-2" onClick={() => this.deleteActivite(item.id)}>Supprimer</button>
+                                                                    </>
+                                                            }
                                                         </> : null
                                                     }
                                                 </div>

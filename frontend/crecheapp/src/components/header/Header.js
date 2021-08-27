@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 
 
@@ -12,7 +12,7 @@ import LogoNan from '../../assets/images/logo-nan.png'
 import Menu from '../../assets/images/icon/menu.svg'
 
 class Header extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
     }
 
@@ -22,8 +22,9 @@ class Header extends Component {
         console.log(this.props)
     }
 
-    render(){
-        const {title} = this.props
+    render() {
+        
+        const { title } = this.props
         return (
             (
                 <header className="header">
@@ -31,17 +32,17 @@ class Header extends Component {
                         <img src={LogoNan} alt="logo site" />
                     </div>
                     <div class="header__title">
-                        <h1>{title}</h1>   
+                        <h1>{title}</h1>
                     </div>
                     <div class="header__btn">
-                        {this.props.auth.token ? 
-                            <div className="d-flex justify-content-center align-items-center"> 
-                            
+                        {this.props.auth.token ?
+                            <div className="d-flex justify-content-center align-items-center">
+
                                 <p className="mr-3">Bienvenu(e) <span className="font-weight-bold text-uppercase">{this.props.auth.username[0].username}</span></p>
-                                
+
                                 <button type="button" className="btn-orange border-orange-header" onClick={this.handleLogout}>Déconnection</button>
                             </div>
-                            : 
+                            :
                             <Link to="/login"><button type="button"
                                 className="btn-orange border-orange-header">Connexion</button>
                             </Link>
@@ -54,10 +55,10 @@ class Header extends Component {
             )
         )
     }
-} 
-const mapStateToProps = state => ({auth : state.auth})
+}
+const mapStateToProps = state => ({ auth: state.auth })
 const mapDispatchToProps = dispatch => ({
-    logoutUser : () => dispatch(logoutUser())
-  })
-export default connect(mapStateToProps,mapDispatchToProps)(Header)
-    
+    logoutUser: () => dispatch(logoutUser())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
+
